@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>AgriSmart Togo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AgriSmart Togo</h1>
+        <p>Conseils agricoles avec satellites et météo en temps réel !</p>
+        
+        <form action="/predict" method="POST">
+            <label for="region">Région :</label>
+            <select name="region" id="region">
+                <option value="Kara">Kara</option>
+                <option value="Lome">Lomé</option>
+                <option value="Plateaux">Plateaux</option>
+            </select><br><br>
+
+            <label for="crop">Culture :</label>
+            <select name="crop" id="crop">
+                <option value="Mais">Maïs</option>
+                <option value="Manioc">Manioc</option>
+                <option value="Igname">Igname</option>
+            </select><br><br>
+
+            <label for="humidity">Humidité du sol (0-100 %) :</label>
+            <input type="number" name="humidity" id="humidity" min="0" max="100" required><br><br>
+
+            <button type="submit">Obtenir une recommandation</button>
+        </form>
+
+        {% if prediction %}
+        <h2>Résultat :</h2>
+        <p class="result">{{ prediction }}</p>
+        {% if ndvi %}
+        <p class="result">NDVI (Santé des cultures) : {{ ndvi }}</p>
+        {% endif %}
+        {% if forecast %}
+        <p class="result">Prévisions 5 jours : {{ forecast }}</p>
+        {% endif %}
+        {% if crop_map %}
+        <p class="result">Carte des cultures : {{ crop_map }}</p>
+        {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
