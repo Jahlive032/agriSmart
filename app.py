@@ -12,9 +12,11 @@ AGRO_API_KEY = "2d2dee68d1290c7a8d4f1aa2adb61c50"      # Remplace par ta clé Ag
 
 # Coordonnées des régions togolaises (lat, lon)
 REGIONS = {
-    "Kara": (9.5489, 1.1861),
-    "Lome": (6.1319, 1.2228),
-    "Plateaux": (7.6100, 0.9500)
+  "Kara": (9.5489, 1.1861),
+  "Lome": (9.5489, 1.1861),
+  "Atakpame": (9.5489, 1.1861),
+  "Tchamba": (9.5489, 1.1861),
+  "Dapaong": (9.5489, 1.1861),
 }
 
 # Modèle ML pour prédiction
